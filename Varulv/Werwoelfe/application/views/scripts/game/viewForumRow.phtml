@@ -1,0 +1,14 @@
+<?php $url = $this->url( array( 'controller'=>'forum',
+								'action'=>'view',
+								'id'=>$this->model->fID ) ); 
+if ( $this->model->isVisibleForUser() ) { ?>
+	<tr>
+		<td>
+			<a href="#" onClick="createWindow('forum_<?php echo $this->model->fID; ?>','Forum: <?php echo $this->model->fName; ?>','win_game_<?php echo $this->model->fGame; ?>_html','<?php echo $url; ?>',400,600,400,600);">
+				<?php echo $this->escape( $this->model->fName ); ?>
+			</a>
+		</td>
+		<td><?php echo $this->model->countThreads(); ?></td>
+		<td><?php echo $this->model->countPostings(); ?></td>
+	</tr><?php 
+} ?>

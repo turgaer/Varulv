@@ -1,0 +1,18 @@
+<?php $url = $this->url( array( 'controller'=>'game',
+								'action'=>'view',
+								'id'=>$this->gID ) ); ?>
+<tr>
+	<td>
+		<a href="#" onClick="createWindow('game_<?php echo $this->gID; ?>','Dorf: <?php echo $this->gName; ?>','win_game_html','<?php echo $url; ?>',400,600,400,600);">
+			<?php echo $this->escape( $this->gName ); ?>
+		</a>
+	</td>
+	<td><?php echo $this->uName; ?></td>
+	<td><?php echo $this->gPlayers; ?></td>
+	<td><?php echo $this->countGood; ?></td>
+	<td><?php echo $this->countNeutral; ?></td>
+	<td><?php echo $this->countEvil; ?></td>
+	<td>
+		<?php echo $this->displayDate( $this->gCreated ); ?>
+	</td>
+</tr>

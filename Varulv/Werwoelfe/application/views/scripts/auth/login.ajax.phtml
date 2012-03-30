@@ -1,0 +1,18 @@
+<form id="form_login" name="form_login" method="POST" style="width: 300px">
+	<fieldset style="width: 300px">
+		<legend>Userdaten</legend>
+		<div class="form_row" style="width: 300px">
+			<label for="f_username" class="form_label" style="width: 100px">Username</label>
+			<input type="text" name="f_username" value="" align="right" style="width: 100px" />
+		</div>
+		<div class="form_row" style="width: 300px">
+			<label for="f_password" class="form_label" style="width: 100px">Passwort</label>
+			<input type="password" name="f_password" value="" align="right" style="width: 100px" />
+		</div>
+		<div id="form_login_result" class="form_row" style="width: 300px">
+			<div id="form_login_messages">&nbsp;</div>
+			<label for="f_login_submit" class="form_label" style="width: 100px">&nbsp;</label>
+			<input type="button" id="f_login_submit" name="f_login_submit" onClick="javascript:submitForm('login','<?php echo $this->url( array( 'controller'=>'auth', 'action'=>'identify', 'format'=>'json' ) ); ?>','JSON',null);" value="Login" />
+		</div>
+	</fieldset>
+</form> 

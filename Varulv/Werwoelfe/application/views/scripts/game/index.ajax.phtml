@@ -1,0 +1,22 @@
+<div class="subtitle">Neues Spiel</div>
+<br>
+<a href="#" onClick="createWindow('gamecreate','Dorfgr&uuml;ndung','win_game_html','<?php echo $this->url( array( 'controller'=>'game', 'action'=>'create', 'format'=>'html' ) ); ?>',450,700,500,700);">
+	Dorf gr&uuml;nden (Spiel erstellen / SL)
+</a><br>
+<a href="#" onClick="createWindow('gamesearch','Dorfverzeichnis','win_game_html','<?php echo $this->url( array( 'controller'=>'game', 'action'=>'search', 'format'=>'html' ) ); ?>',400,600,400,600);">
+	Dorf suchen (Teilnahme als Spieler)
+</a><br>
+<br>
+<br>
+<div class="subtitle">Deine D&ouml;rfer</div>
+<ul>
+	<?php 
+		if ( $this->inhGames->count() == 0 && $this->ownGames->count() == 0 ) {
+			echo "Du bist aktuell in keinem Dorf Einwohner und hast auch kein aktives Dorf gegr&uuml;ndet.
+				  Bitte gr&uuml;nde ein Dorf oder suche ein Dorf mit dem Atlas.";
+		} else {
+			echo $this->partialLoop('game/indexGameRow.phtml', $this->ownGames );
+			echo $this->partialLoop('game/indexGameRow.phtml', $this->inhGames );
+		}
+	?>
+</ul>

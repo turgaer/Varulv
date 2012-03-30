@@ -1,0 +1,41 @@
+Die folgenden Daten sind f&uuml;r eine Einschreibung bei Varulv notwendig. Dein Pseudonym ist am wichtigsten,
+mit diesem wirst Du Dich anmelden und unter diesem wirst Du Deinen Mitbewohnern oder -w&ouml;lfen bekannt
+sein. Der Realname wird noch nicht verwendet und wird im Dorf auch nicht Erw&auml;hnung finden. Die eMail ist
+notwendig, damit wir Dich auch nachts oder in Deiner Abwesenheit vom Dorf kontaktieren k&ouml;nnen. Dein
+Geschlecht hat nur schm&uuml;ckenden Charakter, beispielsweise f&uuml;r Dein Portrait in der Kartei, ist aber
+ebenfalls notwendig.
+<form id="form_reg" name="form_reg" method="POST">
+	<fieldset>
+		<legend>Userdaten</legend>
+		<div class="form_row">
+			<label for="f_username" class="form_label">Pseudonym:</label>
+			<input type="text" name="f_username" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_realname" class="form_label">Realname:</label>
+			<input type="text" name="f_realname" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_sex" class="form_label">Geschlecht:</label>
+			<input type="radio" name="f_sex" value="m" />m&auml;nnlich
+			<input type="radio" name="f_sex" value="w" />weiblich
+		</div>
+		<div class="form_row">
+			<label for="f_email" class="form_label">eMail:</label>
+			<input type="text" name="f_email" />
+		</div>
+		<div class="form_row">
+			<label for="f_pass1" class="form_label">Passwort:</label>
+			<input type="password" name="f_pass1" />
+		</div>
+		<div class="form_row">
+			<label for="f_pass2" class="form_label">Passwortwdh.:</label>
+			<input type="password" name="f_pass2" />
+		</div>
+		<div id="form_reg_result" class="form_row">
+			<div id="form_reg_messages">&nbsp;</div>
+			<label for="f_reg_submit">&nbsp;</label>
+			<input type="button" id="f_reg_submit" name="f_reg_submit" onClick="javascript:submitForm('reg','<?php echo $this->url( array( 'controller'=>'register', 'action'=>'register', 'format'=>'json' ) ); ?>','JSON',null);" value="Registrieren" />
+		</div>
+	</fieldset>
+</form>

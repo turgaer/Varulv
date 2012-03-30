@@ -1,0 +1,8 @@
+<?php $url = $this->url( array( 'controller'=>'game',
+								'action'=>'view',
+								'id'=>$this->gID ) ); ?>
+<li>
+	<a href="#" onClick="createWindow('game_<?php echo $this->gID; ?>','Dorf: <?php echo $this->gName; ?>','win_game_html','<?php echo $url; ?>',400,600,400,600);">
+		<?php echo $this->escape( $this->gName ); ?>
+	</a>
+</li>

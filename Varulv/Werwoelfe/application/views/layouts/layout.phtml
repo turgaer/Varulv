@@ -1,0 +1,23 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<?php echo $this->headMeta(); ?>
+	<?php echo $this->headTitle(); ?>
+	<?php echo $this->headLink(); ?>
+	<?php echo $this->headScript(); ?>
+</head>
+<body>
+	<?php echo $this->partial("_header.phtml"); ?>
+	<div id="win_main">
+		<div id="win_main_top">Varulv - v0.1</div>
+		<div id="win_main_html">		
+			<?php echo $this->layout()->menu; ?>
+			<?php echo $this->layout()->content; ?>
+		</div>
+	</div>	
+	<div id="right">
+		<?php echo $this->layout()->advert; ?>
+	</div>
+	<?php // echo $this->partial("_footer.phtml"); ?>
+</body>
+</html>

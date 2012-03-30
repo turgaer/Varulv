@@ -1,0 +1,14 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Dorfgr&uuml;nder</th>
+		<th>Einwohnerzahl</th>
+		<th>gut</th>
+		<th>neutral</th>
+		<th>b&ouml;se</th>
+		<th>Gr&uuml;ndungszeit</th>
+	</tr>
+	<?php 
+		echo $this->partialLoop('game/listGameRow.phtml', $this->games );
+	?>
+</table>

@@ -1,0 +1,8 @@
+<?php $url = $this->url( array( 'controller'=>'user',
+								'action'=>'view',
+								'id'=>$this->uID ) ); ?>
+<li>
+	<a href="#" onClick="createWindow('user_<?php echo $this->uID; ?>','User: <?php echo $this->uName; ?>','win_main_html','<?php echo $url; ?>',400,600,400,600);">
+		<?php echo $this->escape( $this->uName ); ?>
+	</a>
+</li>

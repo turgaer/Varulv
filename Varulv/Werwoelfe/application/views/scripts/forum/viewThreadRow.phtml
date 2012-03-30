@@ -1,0 +1,21 @@
+<?php $url = $this->url( array( 'controller'=>'thread',
+								'action'=>'view',
+								'id'=>$this->model->tID ) ); 
+	  $owner = $this->model->getOwner(); ?>
+<tr>
+	<td>
+		<a href="#" onClick="createWindow('forum_<?php echo $this->model->fID."_".$this->model->tID; ?>','Thread: <?php echo $this->model->tTitle; ?>','win_forum_<?php echo $this->model->fID; ?>_html','<?php echo $url; ?>',400,600,400,600);">
+			<?php echo $this->escape( $this->model->tTitle ); ?>
+		</a>
+	</td>
+	<td align="center"><?php $url = $this->url( array( 'controller'=>'user',
+										'action'=>'view',
+										'id'=>$owner->uID ) ); ?>
+		<a href="#" onClick="createWindow('user_<?php echo $owner->uID; ?>','User: <?php echo $owner->uName; ?>','win_main_html','<?php echo $url; ?>',400,600,400,600);">
+			<?php echo $this->escape( $owner->uName ); ?>
+		</a><br>
+		<?php echo date( "d.m.y @ H:i:s", $this->model->tCreated ); ?>
+	</td>
+	<td align="center"><?php echo $this->model->countPostings(); ?></td>
+	<td>&nbsp;</td>
+</tr>

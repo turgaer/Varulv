@@ -1,0 +1,20 @@
+<?php $url = $this->url( array( 'controller'=>'thread',
+											  'action'=>'form',
+											  'fID'=>$this->forum->fID ) ); ?>
+<a href="#" onClick="getContent('forum_<?php echo $this->forum->fID; ?>_edit','<?php echo $url; ?>');">Neuer Thread...</a>
+<table>
+	<tr>
+		<th>Titel</th>
+		<th align="center">Erstellt<br>Zeit</th>
+		<th align="center">Beitr&auml;ge</th>
+		<th>&nbsp;</th>
+	</tr>
+	<tr id="forum_<?php echo $this->forum->fID; ?>_edit">
+		<form  name="forum_<?php echo $this->forum->fID; ?>_edit" method="POST">
+		</form>
+	</tr>
+	<?php 
+		$this->partialLoop()->setObjectKey('model');
+		echo $this->partialLoop('forum/viewThreadRow.phtml', $this->forum->threads );	
+	?>	
+</table>

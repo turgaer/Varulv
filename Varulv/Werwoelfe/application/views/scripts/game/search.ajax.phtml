@@ -1,0 +1,22 @@
+Suche in diesem Atlas nach einem Dorf, welches Deinen Anspr&uuml;chen entspricht.
+<form id="form_search" name="form_search" method="POST" style="width: 90%">
+	<fieldset style="width: 90%">
+		<legend>Atlas</legend>
+		<div class="form_row" style="width: 80%">
+			<label for="f_name" class="form_label" style="width: 30%">Name:</label>
+			<input type="text" name="f_name" align="right" />
+		</div>
+		<div class="form_row" style="width: 80%">
+			<label for="f_playmin" class="form_label" style="width: 30%">Spielerzahl:</label>
+			<input type="text" name="f_playmin" size="3" align="right" /> min. / max. 
+			<input type="text" name="f_playmax" size="3" align="right" />
+		</div>
+		<hr size="1" />
+		<div id="form_search_result" class="form_row" style="width: 80%">
+			<div id="form_search_messages">&nbsp;</div>
+			<label for="f_search_submit" style="width: 30%">&nbsp;</label>
+			<input type="button" id="f_search_submit" name="f_search_submit" onClick="javascript:submitForm('search','<?php echo $this->url( array( 'controller'=>'game', 'action'=>'search', 'format'=>'json' ) ); ?>','JSON','win_gamesearch_results');" value="Suchen" />
+		</div>
+	</fieldset>
+</form>
+<div id="win_gamesearch_results"></div>

@@ -1,0 +1,82 @@
+<table>
+	<tr>
+		<th>Einwohner:</th>
+		<td><?php echo $this->game->gPlayers; ?></td>
+		<th>Dorfstatus:</th>
+		<td><?php echo $this->game->status->sName; ?></td>
+	</tr>
+	<tr>
+		<th>Dorfgr&uuml;nder:</th>
+		<td>
+			<?php $url = $this->url( array( 'controller'=>'user',
+											'action'=>'view',
+											'id'=>$this->game->owner->uID ) ); ?>
+			<a href="#" onClick="createWindow('user_<?php echo $this->game->owner->uID; ?>','User: <?php echo $this->game->owner->uName; ?>','win_main_html','<?php echo $url; ?>',400,600,400,600);">
+				<?php echo $this->escape( $this->game->owner->uName ); ?>
+			</a>
+		</td>
+		<th rowspan="6">Einwohner:</th>
+		<td rowspan="6">
+			<ul>
+				<?php echo $this->partialLoop('game/viewUserRow.phtml', $this->game->inhabitants );	?>
+			</ul>	
+		</td>	
+	</tr>
+	<tr>
+		<th>Gr&uuml;ndungszeit:</th>
+		<td><?php echo $this->displayDate( $this->game->gCreated ); ?></td>
+	</tr>
+	<tr>
+		<th>Die Guten</th>
+		<td>
+			<ul>
+				<li><?php echo $this->game->gRdb; ?> Dorfbewohner
+				<li><?php echo $this->game->gRjg; ?> J&auml;ger
+				<li><?php echo $this->game->gRhx; ?> Hexe(n)
+				<li><?php echo $this->game->gRam; ?> Amor
+				<li><?php echo $this->game->gRws; ?> Wahrsagerin
+				<li><?php echo $this->game->gRwst; ?> Wahrsage-Tochter
+				<li><?php echo $this->game->gRmm; ?> Mastermind
+			</ul>
+		</td>	
+	</tr>
+	<tr>
+		<th>Die Neutralen</th>
+		<td>
+			---
+		</td>	
+	</tr>
+	<tr>
+		<th>Die B&ouml;sen</th>
+		<td>
+			<ul>
+				<li><?php echo $this->game->gRoww; ?> Oberwerwolf
+				<li><?php echo $this->game->gRww; ?> Werw&ouml;lfe
+				<li><?php echo $this->game->gRdg; ?> Hund
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th>Beschreibung:</th>
+		<td><?php echo $this->game->gDesc; ?></td>
+	</tr>
+</table>
+<?php if ( !$this->userIsInhabitant ) { ?>
+	<form id="form_gamejoin" name="form_gamejoin" method="POST" style="width: 90%">
+		<div id="form_gamejoin_result">
+			<div id="form_gamejoin_messages"></div>
+			<input type="hidden" name="gID" value="<?php echo $this->game->gID; ?>" />
+			<input type="button" id="f_gamejoin_submit" name="f_gamejoin_submit" onClick="javascript:submitForm('gamejoin','<?php echo $this->url( array( 'controller'=>'game', 'action'=>'join', 'format'=>'json' ) ); ?>','JSON','win_gamejoin_results');" value="Einziehen!" />
+		</div>
+	</form>
+<?php } ?>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Threads</th>
+		<th>Beitr&auml;ge</th>
+	</tr>
+	<?php 
+		$this->partialLoop()->setObjectKey('model');
+		echo $this->partialLoop('game/viewForumRow.phtml', $this->game->forums );	?>	
+</table>

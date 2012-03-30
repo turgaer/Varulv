@@ -1,0 +1,13 @@
+<?php $url = $this->url( array( 'controller'=>'game',
+								'action'=>'index',
+								'id'=>$this->gID ) ); ?>
+<tr>
+	<td>
+		<a href="<?php echo $url; ?>">
+			<?php echo $this->escape( $this->gName ); ?>
+		</a>
+	</td>
+	<td>
+		<?php echo $this->displayDate( $this->gID ); ?>
+	</td>
+</tr>

@@ -1,0 +1,105 @@
+Mit diesem Formular kannst Du ein neues Dorf gr&uuml;nden und grundlegende Randbedingungen wie beispielsweise
+die Einwohnerzahl und die Zusammenstellung der Rollen im Dorf festlegen. Unter dem Namen wird Dein Dorf allen
+anderen Spielern sichtbar sein. Du kannst ein Passwort vergeben und dies nur einem kleinen Personenkreis verraten,
+um das Dorf nur einem geschlossenen Kreis zur Verf&uuml;gung zu stellen.
+<form id="form_create" name="form_create" method="POST">
+	<fieldset>
+		<legend>Dorfgr&uuml;ndung</legend>
+		<div class="form_row">
+			<label for="f_name" class="form_label">Name:</label>
+			<input type="text" name="f_name" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_play" class="form_label">Spielerzahl:</label>
+			<input type="text" name="f_play" size="3" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_pass" class="form_label">Passwort:</label>
+			<input type="password" name="f_pass" align="right" />
+		</div>
+		<hr size="1" />
+		<div class="form_row">
+			<label for="f_rdb" class="form_label">Dorfbewohner [DB]:</label>
+			<input type="text" name="f_rdb" size="3" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_rww" class="form_label">Werwolf [WW]:</label>
+			<input type="text" name="f_rww" size="3" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_roww" class="form_label">Oberwerwolf [OWW]:</label>
+			<input type="checkbox" name="f_roww" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_rdg" class="form_label">Hund [HU]:</label>
+			<input type="checkbox" name="f_rdg" align="right" />
+		</div>		
+		<div class="form_row">
+			<label for="f_rjg" class="form_label">J&auml;ger [JG]:</label>
+			<input type="text" name="f_rjg" size="3" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_rhx" class="form_label">Hexe [HX]:</label>
+			<input type="text" name="f_rhx" size="3" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_ram" class="form_label">Amor [AM]:</label>
+			<input type="checkbox" name="f_ram" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_rws" class="form_label">Wahrsagerin [WS]:</label>
+			<input type="checkbox" name="f_rws" align="right" onChange="tglField('f_rwst');" />
+		</div>
+		<div class="form_row">
+			<label for="f_rwst" class="form_label">Wahrsagetochter [WST]:</label>
+			<input type="checkbox" id="f_rwst" name="f_rwst" align="right" disabled />
+		</div>
+		<div class="form_row">
+			<label for="f_rmm" class="form_label">Mastermind [MM]:</label>
+			<input type="checkbox" name="f_rmm" align="right" />
+		</div>
+		<div class="form_row">
+			<label for="f_roles" class="form_label">Verteilung der Rollen:</label>
+			<select name="f_roles" align="right" disabled />
+				<option value="0">per Zufall</option>
+				<option value="1" selected>durch SL</option>
+			</select> 
+		</div>
+		<hr size="1" />
+		<div class="form_row">
+			<label for="f_maxboards" class="form_label">Maximale Forenzahl:</label>
+			<input type="text" name="f_maxboards" size="2" value="99" align="right" disabled /> pro Spieler
+		</div>
+		<div class="form_row">
+			<label for="f_editable" class="form_label">Editierung Postings m&ouml;glich:</label>
+			<input type="radio" name="f_editable" value="1" checked disabled/>ja
+			<input type="radio" name="f_editable" value="0" disabled />nein
+		</div>
+		<div class="form_row">
+			<label for="f_editstring" class="form_label">Editierung sichtbar:</label>
+			<input type="radio" name="f_editstring" value="1" checked disabled/>ja
+			<input type="radio" name="f_editstring" value="0" disabled />nein
+		</div>
+		<div class="form_row">
+			<label for="f_singlegame" class="form_label">Einziges Spiel:</label>
+			<input type="radio" name="f_singlegame" value="1" />ja
+			<input type="radio" name="f_singlegame" value="0" checked />nein
+		</div>		
+		<div class="form_row">
+			<label for="f_ghosts" class="form_label">Allwissende Geister:</label>
+			<input type="radio" name="f_ghosts" value="1" checked disabled/>ja
+			<input type="radio" name="f_ghosts" value="0" disabled />nein
+		</div>
+		<hr size="1" />
+		<div class="form_row">
+			<label for="f_desc" class="form_label">Beschreibung:</label>
+			<textarea name="f_desc" rows="6" cols="40"></textarea>
+		</div>
+		<hr size="1" />
+		<div id="form_create_result" class="form_row">
+			<div id="form_create_messages">&nbsp;</div>
+			<label for="f_create_submit">&nbsp;</label>
+			<input type="button" id="f_create_submit" name="f_create_submit" onClick="javascript:submitForm('create','<?php echo $this->url( array( 'controller'=>'game', 'action'=>'create', 'format'=>'json' ) ); ?>','JSON',null);" value="Gr&uuml;nden!" />
+		</div>
+	</fieldset>
+</form>
