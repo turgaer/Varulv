@@ -1,0 +1,35 @@
+Team
+-----
+
+Hier bitte nur eintragen, wenn Du den Code ausgecheckt hast und Interesse an einer häufigeren Mitarbeit besteht.
+
+/--------------------------------+----------------------------+---------------------------------------------\
+| Name                           | eMail                      | Was mache ich?                              |
++--------------------------------+----------------------------+---------------------------------------------+
+| Knutsen (Markus Pöstinger)     | m.poestinger@gmail.com     | Initiator d. Projekts, Entwicklung, Texter  |
+| ...                            | ...                        | ...                                         |
+\--------------------------------+----------------------------+---------------------------------------------/
+           
+Gesucht
+--------
+
+* Entwickler - Verschiedene Spezialisierungen sind denkbar. 
+  --> Forensystem
+  --> Rollenimplementierung
+  --> Spielablauf
+  --> Modelling
+  --> Security
+  --> Ticket-/Ideensystem (Spezielles Forum m. Sonderfunktionen wie "Prioritäten", "Bearbeiter", ...)
+  --> Statistiker (Spielanalysescripts wie "Meiste Postings", "Längstes Posting", ...)
+  --> html/CSS-Guru
+  --> MySQL-Guru
+
+* Grafiker
+  --> Sucht man die nicht immer händeringend? :-)
+
+* Texter 
+  --> Da dies hier immer noch Rollenspielcharakter besitzen soll, benötigen wir
+      Ingame-Texte, z.B. zu den Rollen.
+      
+* Tester
+  --> Alles, was man irgendwie klicken, manipulieren, eingeben und mit dem man Quatsch machen kann, wirklich mit Quatsch machen und Tickets erstellen, wenn man mal wieder 'ne Exception bzw. einen Fehler produziert hat. ;-)

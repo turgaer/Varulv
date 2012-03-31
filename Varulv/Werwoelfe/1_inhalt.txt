@@ -1,0 +1,11 @@
+Inhalt
+-------
+
+0_wasistdas 			--> Kurzer Abriss, worum es bei diesem Projekt eigentlich geht.
+1_inhalt				--> Sie baden gerade Ihre Hände drin.
+2_versionlist			--> Ganz grober Überblick, wo sich dieses Projekt befindet und was wann getan werden sollte.
+3_realisierung_install	--> Welche Techniken werden in diesem Projekt verwendet (Sprachen, Frameworks, ...)
+						--> Wie wird das System auf dem eigenen Rechner zum Laufen gebracht?
+4_todo					--> ToDos, offene Punkte, Ideenliste
+5_codeoverview			--> Ein kleiner Überblick über die Codestruktur
+9_team					--> Mitarbeiter am Projekt & Jobbörse

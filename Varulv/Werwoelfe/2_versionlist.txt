@@ -1,0 +1,82 @@
+Version
+--------
+
+  /---------------------------------------------------------------------------------------------------------------\
+ /  Dieses Projekt ist in --> PHASE 0 <-- (s.u.)                                                                  |
+/----------+------------------------------------------------------------------------------------------------------+
+| Version  | Beschreibung                                                                                         |
++----------+------------------------------------------------------------------------------------------------------+
+| 0.0.1    | Grundaufbau. Registrierung, Login, Spielerstellung möglich.                                          |
+| ...      | ...                                                                                                  |
+\-----------------------------------------------------------------------------------------------------------------/
+
+
+Entwicklungsphasen
+-------------------
+
+* PHASE 0: Implementierung eines rudimentären Grundsystems
+  --> Praktisches Minimaldesign (keine Bilder): Layout per DIV-Container,
+      die sich variabel öffnen, schließen, minimieren und verschieben 
+      lassen. Innerhalb des Haupt-DIVs befindet sich:
+      --> MUST: Hauptmenü, worüber die einzelnen Partien als Spiel-DIVs 
+          geöffnet werden können. Innerhalb des Spiel-DIVs befindet sich:
+          --> MUST: ein DIV mit dem Spielmenü, worüber Spielinformationen 
+              (Spieler, Foren, etc.) abgerufen werden können.
+          --> CAN: mehrere DIVs mit Spielerprofilen, Foren, etc. Innerhalb
+              der Foren-DIVs befindet sich:
+              --> MUST: Ein Menü mit den einzelnen Threads.
+              --> CAN: Mehrere Thread-DIVs mit Postings.
+  --> Registrierung & Authentifizierung / Editierung User-Profil
+  --> Anlegen und Öffnen von Spielen incl. Einladung von Spielern
+  --> SL: Anlegen von Foren und Zuweisung von Spielern zu Foren
+  --> Zugriffskontrolle: Spieler sehen nur die ihnen zugewiesenen Foren
+  --> Erstellung von Threads in Foren bzw. Erstellen von Postings in vorh.
+      Threads
+
+Mit der Beendigung von PHASE 0 soll ein Stand erreicht sein, bei dem theoretisch ein Spiel ohne technische Unterstützung lauffähig sein sollte. Es müssen sich Spiele erstellen lassen von einem SL, es müssen sich Spieler selbst eintragen können, das Spiel muss gestartet werden können und es müssen sich Foren, Threads und Postings erstellen lassen von den Spielern inklusive eigener Rechtevergabe ("Spieler X soll man Forum sehen können, aber nicht schreiben. Spieler Y darf alles."). Ansonsten muss der SL aber noch alles selbst handeln (Stimmauszählung, Spieler als tot markieren (Rolle "Geist"), etc...).
+
+
+* PHASE 1: Initiierung einer Spielrunde mit interessierten Alphatestern und stetige Weiterentwicklung
+  --> Implementierung eines rudimentären Ticket-Systems zum Reporting von
+      Bugs.
+  --> Implementierung eines Ideen-Systems für Wünsche bzgl. der Weiter-
+      entwicklung ("Idee" kann ein spezielles "Ticket" sein).
+  --> Implementierung eines kleinen Nachrichten(Mail)-Systems
+  --> Implementierung der Sonderfunktion einzelner Standardrollen wie "Hexe",
+      "Jäger", "Amor/Verliebte", "Oberwerwolf", "Wolf", "Hund".
+  --> Implementierung von Unterstützungen für die einzelnen Rollen.
+      Beispiele:
+      --> Wölfe bestimmen Fresskandidaten per Script --> autom. Benachr.
+          an Hexe und SL, wer gefressen werden soll. --> Hexe bekommt nun
+          zur Auswahl, ob Rettung oder Sterben lassen. Bei Rettung verliert
+          Hexe diese Sonderfunktion.
+      --> Hexe hat zu jedem Zeitpunkt in ihrem Spielmenü eine Sonderfunktion
+          "Gifttrank anwenden" --> Bei Anklicken kann sie einen der lebenden
+          Spieler auswählen. Bei Auswahl bekommt der betroffene Spieler,
+          der SL und die Hexe die Meldung, daß der Spieler tot. Danach hat
+          die Hexe die Sonderfunktion nicht mehr zur Verfügung.
+      ---> ...... gleiches für alle Rollen. Die Rollen sind natürlich auch
+           vorher schon spielbar, allerdings nicht scriptunterstützt, son-
+           dern manuell. Der SL wacht über die Korrektheit der Anwendung.
+  --> Implementierung von Hilfsfunktionen für SLs (Umfrageskripte für die
+      Lynchungen bspw.)
+      
+Ziel von PHASE 1 ist ein Stand, in dem es den Testern zum ersten Mal Spaß machen soll, eine Runde mit diesem System zu spielen. Ein Stand, wo das System SL und Spieler dabei unterstützt, eine nette Runde zu erleben... auch wenn es noch nicht viele Sonderrollen gibt.
+
+
+* PHASE 2: Hardening und Einladung von Betatestern und stetige Weiterentwicklung
+  --> Alle Formulare auf Sicherheit checken (SQL-Injection, CrossSiteScripting, ...)
+  --> Bedienelemente um Hilfefunktionen erweitern, intuitiv machen, gegen
+      Fehleingaben absichern, ...
+  --> Im Bekannten-/Freundeskreis intensiv nach Betatestern werben
+  --> Weitere Sonderrollen implementieren
+  --> Wenn Ziel ein echtes Onlinegame, dann Überlegungen zwecks Finanzierung
+  --> Überlegungen und Untersuchungen aller Funktionen in Bezug auf hohe Spielerzahlen
+  
+Ziel von PHASE 2 ist ein einigermaßen rund laufendes Browsergame. Das System muss einigermaßen sicher sein, es muss performant und skalierbar sein, es muss finanzierbar sein. Ziel von PHASE 2 ist eine Öffnung für die weite (deutschsprachige) Welt.
+
+
+* PHASE 3: Weiterentwicklung.... Internationalisierung....
+  --> Implementierung der Möglichkeit verschiedener Sprachen
+  ....... (zuweitinderzukunft)
+

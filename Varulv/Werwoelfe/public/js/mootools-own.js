@@ -1,5 +1,4 @@
-//var baseURL = 'http://localhost:10089';
-var baseURL = 'http://www.datatree.de/ww/public';
+var baseURL = 'http://localhost:10089';
 
 function getContent( container, url ) {
 	new Request.HTML( {

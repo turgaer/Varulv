@@ -1,0 +1,29 @@
+Projekt "Varulv"
+==============================
+
+0) Kurzbeschreibung Spielprinzip & -ablauf
+-------------------------------------------
+
+a) Kurzabriss:
+Ein Online-Rollenspiel, inspiriert vom Kartenspiel "Die Werwölfe". Eine Partie umfasst zwischen 5 und oo Mitspieler. Ein Spieler übernimmt in der Partie eine bestimmte Rolle, die entweder einer von zwei großen Parteien zugeordnet wird oder als neutrale Rolle keiner Partei zugeordnet ist. Die beiden großen Parteien sind die guten Dorfbewohner und die Werwölfe. Jede Partei trachtet danach, die andere Seite komplett auszulöschen. Für die neutralen Rollen gelten spezielle Siegbedingungen.
+
+b) Spielablauf: 
+Das Spiel ist in eine Tag- und eine Nachtphase unterteilt. In der Nachtphase dürfen die Werwölfe ihren Zug machen und unter anderem einen guten Dorfbewohner "fressen", was in den meisten Fällen dessen Tod und das gleichzeitige Ausscheiden des betroffenen Spielers aus der Partie bewirkt. In der Tagphase dürfen die Dorfbewohner ihren Zug machen und nach umfangreicher Diskussion jeweils eine Stimme pro Dorfbewohner für die Lynchung eines anderen verdächtigen Dorfbewohners abgeben. Der gelynchte Dorfbewohner ist ebenfalls tot und der betroffene Spieler scheidet aus. Mit Glück und Instinkt hat das Dorf einen Werwolf gelyncht, mit Pech oder Unvermögen ;-) einen guten Dorfbewohner.
+
+Die Dorfbewohner und Werwölfe können zudem eine von zahlreichen Spezialrollen innehaben (zu denen die neutralen ebenso zählen), die ihnen jeweils mehr Möglichkeiten geben die Partie zu ihren Gunsten zu beeinflussen. Die Werwölfe wissen untereinander Bescheid, wer Werwolf ist, sie kennen allerdings nicht die Verteilung der Spezialrollen. Die Dorfbewohner sind selbstverständlich komplett im Unklaren, wer welche Rolle besitzt und wer überhaupt Werwolf ist. Bei den Diskussionen beteiligen sich die Werwölfe natürlich (als Einwohner im Dorf) und versuchen zusätzlich Verwirrung zu stiften und für eine gute Tarnung ihrer Leute zu sorgen.
+
+Allmählich reduziert sich die Spielerzahl jede Runde weiter, bis entweder 
+* die Anzahl der Werwölfe denen der guten Dorfbewohner gleichkommt -> was den Sieg der Wölfe bedeutet, da sie von nun an immer bei der Lynchung für einen guten Dorfbewohner stimmen können,
+* alle Werwölfe aus dem Spiel ausgeschieden sind, was einen Sieg der Dorfbewohner bedeutet oder
+* in der Zwischenzeit eine Siegbedingung für eine der neutralen Rollen erfüllt worden ist. Dann gewinnt natürlich die neutrale Partei und die beiden großen Parteien verlieren gemeinsam. Die Siegbedingungen für diese speziellen Rollen ist bei den Rollen erläutert.
+
+c) Motivation / Warum ist das Spiel gut?
+Das Spiel lebt von den Diskussionen zwischen den Spielern, der Interaktion und dem Fakt, daß niemand sicher sein kann, daß ein bestimmter anderer Spieler auf der gleichen Seite spielt wie man selbst. Das Spiel ist extrem diskussionslastig, daher ist bei diesem Projekt die performante und intuitive Implementierung des Foren/BulletinBoard-Teils auch mit am wichtigsten. Es gibt in jeder Spielrunde einen sogenannten "Dorfplatz" (das Hauptforum), auf dem die öffentlichen Diskussionen stattfinden. Zusätzlich kann jeder Spieler eigene Spezialforen eröffnen, die nur er selbst sieht und die er später nach Gutdünken anderen Spielern zugänglich machen kann, denen er vertraut (zu Recht oder auch zu Unrecht). Hier laufen dann Diskussionen und Absprachen "hintenrum" ab, mit dem Ziel das Spiel zu steuern. 
+
+Für die Spieler der Wolfsseite ist der Thrilleffekt darin zu sehen, daß sie aufpassen müssen nicht enttarnt zu werden. Sie müssen sich bei Diskussionen extrem unauffällig verhalten, dabei aber indirekt das Spiel zu ihren Gunsten steuern, da sie ansonsten kaum Chancen auf einen Sieg haben. 
+
+Für die Dorfbewohnerseite ist der Thrilleffekt die Paranoia. Gute Dorfbewohner können zu Beginn nicht sicher sein, wer sonst noch gut ist. Die guten Dorfbewohner müssen sich aber irgendwann zusammenfinden, weil das Dorf ansonsten nur wenig Chancen auf den Sieg hat.
+
+
+
+

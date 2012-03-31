@@ -1,0 +1,66 @@
+
+==============================================================================================================================
+
+!!! PRIO 1 / MUST HAVES, offene Punkte zur Beendigung dieser Phase !!!
+-----------------------------------------------------------------------
+
+* PHASE 0: Implementierung des Forensystems. Es müssen sich Foren innerhalb eines offenen Spieles von den Spielern der aktuellen Spielrunde erstellt werden lassen inkl. Rechtevergabe. Außerdem müssen Postings geschrieben werden können und Threads erstellt werden können.
+--> Es gibt schon Anfänge (Models "Forum", "Thread", "Posting" stehen und Controller "Forum" und "Thread" sind begonnen).
+
+
+==============================================================================================================================
+
+*** PRIO 2 / NICE TO HAVE aktuell, werden evtl. in nächster Phase des Projekts PRIO 1 ***
+------------------------------------------------------------------------------------------
+
+* PHASE 0: Verbesserung des Layouts
+Idee: Hauptmenü in Titelleiste integrieren, ebenso Spielmenü mit z.B. "Neues Spiel" in die Titelleiste des Spielefensters integrieren.
+
+* PHASE 1: Extrem schlankes/sparsames und schnelles, aber wertiges Layout. Im Grunde vor allem hübschere Fenster (Titelleisten, Rahmen, Button zum Resizing und Schließen). ;-) Plazierung von wenigen, aber qualitativ hochwertigen Grafiken. Z.B. ein Avatar für die einzelnen Rollen.
+
+* PHASE 1: Spielrundenimplementierung
+Ein Spiel ist in einem Rundenstatus (BEGINNING | DAY | NIGHT | FINISHED). 
+BEGINNING: 	Anmeldephase, SL hat das Spiel noch nicht gestartet.
+DAY: 		Tagphase, das Dorf diskutiert in Richtung Lynchung
+NIGHT: 		Nachtphase, das Dorf wartet auf die Nachtaktionen (fressen, etc.)
+FINISHED: 	Das Spiel ist zu Ende und "im Archiv".
+DAY und NIGHT wechseln sich ab bis zum Spielende.
+Idee: Abstrakte Klasse für Rundenstatus mit abstrakten Methoden onStart() und onFinish(). Die vier konkreten Stati implementieren. Z.B. ist onStart() für DAY leer, in onFinish() muss der Tod des gelynchten Spielers passieren, danach eventuell ein automatisches Posting auf dem Dorfplatzforum mit den Ergebnissen bzw. der Stimmaufteilung und der Einläutung der Tagphase. In NIGHT ist in onStart() vielleicht eine Nachricht an die Spieler mit Nachtaktionen zu senden, vielleicht mit einer automatischen Umfrage, wer bspw. gefressen werden soll. In onFinish() muss auch wieder der Tod des gefressenen Spielers zu finden sein. 
+ 
+* PHASE 1: Rollenimplementierung
+Idee: Eine abstrakte Klasse für eine allgemeine Rolle, mit Triggermethoden ausgestattet wie onDayFinish() oder onDayTimeShow() für spezielle Formularelemente in einem bestimmten Bereich (z.B. onOtherPlayerAction() zeigt neben einem Spielernamen ein Icon "Gifttrank" bei der Hexe (Spieler stirbt sofort) oder "Flinte" beim Jäger (ein Flag wird gesetzt, daß beim Tod des Jägers dieser Spieler mit stirbt).
+
+* PHASE 1: Implementierung eines Nachrichtensystems
+Idee: Datenbanktabelle für Threads und Postings nutzen?
+
+==============================================================================================================================
+
+--- PRIO 3 / IDEAs, nette Ideen, die bei Zeit und Lust realisiert werden können ---
+------------------------------------------------------------------------------------
+
+* Ausführliche Spielerprofile: 
+  -- Anzeige der Anzahl und Länge der Beiträge in den vergangenen Runden 
+     (Erkennung von Spammern / Aktivposten oder Schläfern)
+  -- Anzeige der Anzahl von gespielten Partien
+  -- Anzeige der Anzahl der Siege und Niederlagen als DB und als Wolf
+  -- Spezielle Auszeichnungen für Siege als Verliebter, Flöti, ... (Sonder-
+     rolle)
+  -- Auszeichnungen z.B. für "Überlebte Tage als Wolf in Serie"
+* Speicherung von Fensterpositionen beim Ausloggen.
+* Forcierung des Rollenspielgedankens: Hübsche Ingame-Erläuterungen für die einzelnen Rollen als Kursivtext und die Spielfakten als Normaltext.
+* Kursivtext in den Beiträgen auch als Ingametext, z.B. vom Spielleiter, aber auch freiwillig von den Spielern.
+* Anbieten von Möglichkeiten, eine Partie komplett Ingame zu spielen (Kursivtext only in den Beiträgen).
+* Verschiedene Stati als Spieler, z.B. 
+  --> "verfügbar"/"blockiert"
+  --> "möchte Rollenspiel spielen"/"normale Runden"
+* Wünsche als Spieler wie "möchte WW spielen", "möchte WS sein", etc.
+* Bei Neuanlegen eines Spiels Anzeige an verfügbaren Spielern --> dem SL werden sofort verfügbare Spieler zur Einladung vorgeschlagen - auch gemäß der eigenen Ausrichtung der Runde (Rollenspielrunde vs. normale Runde) und gemäß den Wünschen der Spieler (WS wird mit "Ich will WS sein" besetzt, etc.) - alles natürlich auf Wunsch, nicht als Must
+* Unterstützung für den SL beim Zusammenstellen der Rollen an Hand Stats aus absolvierten Spielen. Anzeige des Verhältnisses, bei welchem am häufigsten gerade noch das Dorf gewonnen hat bzw. gerade noch die Wölfe. Wahrscheinlichkeitsanzeige für Dorf/WW-Sieg bei Abweichungen vom Verhältnis.
+* Erläuterungstexte für die Rollen sowohl aus Sicht des Spielers als auch des SLs. Worauf muss er sich einstellen, wenn die Rolle kommt. Wie mächtig ist die Rolle. Mit welchen Rollen harmoniert sie? Etc.
+* Variable Spieloptionen, wie z.B. ob nachträgliche Editierung der eigenen Texte (a) unmöglich, (b) möglich mit Zeitanzeige und Häufigkeit oder (c) sogar ohne Zeitanzeige möglich sein soll. Erläuterungen bzgl. Auswirkungen auf's Spiel.
+* Spieler können Foren selbst erstellen und Benamsen und beliebig anderen Spielern ihrer Runde freischalten. Gestorbene Spieler sehen automatisch alles. Sie haben aber keine Schreibrechte in aktiven Spielforen außer im Friedhofsthread.
+* angeflanschtes/unterstütztes Wiki für die Community und verschiedene Seitenübergreifende Foren zur Spiel(er)suche und zum Austausch von Taktiken und Erfahrungen.
+
+
+
+

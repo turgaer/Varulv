@@ -1,0 +1,70 @@
+Verzeichnisstruktur:
+---------------------
+
+\- application
+  \- controllers		- MV(C)
+    xController.php		- Die Implementierung eines bestimmten Controllers, z.B. kümmert sich ein 
+    					  PlayerController um die Editierung der Spielerdaten oder ein 
+    					  ForumController um die Anzeige/Erstellung eines ganzen Forums oder ein 
+    					  ThreadController um die Anzeige/Editierung/Erstellung eines Threads oder ein 
+    					  PostingController um die Anzeige/Editierung/Erstellung eines Postings.
+  \- models				- (M)VC
+    x.php				- Model für eine einzelne Zeile in der Datenbank, z.B. Thread.php ist wirklich *ein* Thread.
+    xs.php				- Model für eine ganze Table in der Datenbank, z.B. Threads.php für Tabelle "Threads".
+  \- views				- M(V)C
+    \- helpers			- Hilfsmethoden, die auf vielen Views immer wieder verwendet werden, z.B. Datumsformatierung
+    \- layouts			- Das html-Grundgerüst
+    \- scripts			- html-Templates für die verschiedenen Controller, 
+      \- x				- z.B. hat GameController hier ein Subdir "game".
+  bootstrap.php			- Initializer, das zweite Script nach der index.php
+
+\- library
+  \- phpUnit			- phpUnit-Framework für Test-Cases
+  \- Werewolves			- Hilfsklassen
+    \- Controller		- Hilfsklassen für Controller
+      \- Plugin
+        ActionSetup.php	
+        ViewSetup.php	- Grundlegendes für den Seitenaufbau wie die MetaDaten im html-Head-Bereich
+    \- View				- Hilfsklassen für Views
+      \- Helper
+  \- Zend				- Das gesamte Zend-Framework
+  
+\- public				- Das bei entsprechender Absicherung nach außen EINZIG sichtbare Verzeichnis auf dem Webserver
+  \- css
+    site.css			- Die einzige CSS-Datei momentan. Das Layout.
+  \- images
+  \- js					- Javascript-Code
+    mootools*.js		- Mootools-Framework
+  index.php				- Start d. Systems bei einem Aufruf, Aufruf des Initializers
+  
+\- tests			- Test-Cases
+
+
+
+Ablauf eines Aufrufs:
+----------------------
+
+a) Erster Seitenaufruf:
+
+http://www.varulv.de 	--(dort liegt)--> public/index.php 
+						--(ruft auf)--> application/bootstrap.php
+						  (Zend wird gestartet)
+						  (Datenbankverbindung wird aufgebaut)
+						  (FrontController wird gestartet)
+						  (Plugins werden eingebaut (View-/ActionSetup))
+						--(startet Controller)--> application/controllers/IndexController.php
+						  (Action wird analysiert)
+						--(führt Action aus)--> indexAction()
+	
+b) Sonstige Seiten:
+
+Linkaufbau ist: http://[DOMAIN]/[CONTROLLER]/[ACTION]{/[PARAMETER_KEY]/[PARAMETER_VALUE]}
+
+Also z.B. http://localhost:10089/game/view/id/3 für die Anzeige des Spiels mit der ID 3, sofern es 
+- eine Controller-Datei namens GameController.php gibt sowie
+- eine Action in diesem Controller namens viewAction() implementiert ist, die
+- das Spiel mit der ID 3 dann auch aus der DB holt und es mit dem
+- entsprechenden View-Template anzeigt.
+
+
+

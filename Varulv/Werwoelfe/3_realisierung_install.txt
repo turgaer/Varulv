@@ -1,0 +1,47 @@
+Technische Realisierung
+------------------------
+
+a) Sprachen: php / MySQL / CSS / JS / html
+
+b) Technik innerhalb php/JS: AJaX ist unabdingbar, wenn die Community etwas größer werden soll, und ist auch schon beispielhaft implementiert. Wenn ein neuer Beitrag im Forum geschrieben werden soll, soll sich nicht jedesmal die ganze Seite neu aufbauen. Spart Traffic und Rechenleistung ohne Ende.
+
+c) Frameworks: 
+Innerhalb von php wird aktuell das Zend Framework verwendet als Basis; z.B. zur Authentifizierung, zum Debuggen / Logging, zur Realisierung von MVC, als allgemeine Unterstützung. Innerhalb von JS werden die MooTools verwendet (Core & More), um AJaX-Kram zu implementieren.
+
+d) Versionskontrolle:
+GitHub. ;-)
+
+d) Entwicklung:
+As everybody wishes... man sollte sich aber auf einen CodeStyle einigen später, damit das "Mergen" von Code nicht zur Qual wird.
+
+
+Installation
+-------------
+
+Benötigt wird ein Webserver mit php- und MySQL-Unterstützung, zudem natürlich die MySQL-Datenbank. Dieses Paket sollte eigentlich schon alles enthalten: [ http://www.zend.com/en/products/server-ce/downloads ]. Die Installation gestaltet sich dann recht einfach: 
+
+0.) Webserver installieren (siehe oben) incl. MySQL.
+1.) Code aus GitHub auschecken, ich nutze unter Eclipse eGIT [ http://www.vogella.de/articles/EGit/article.html ].
+2.) application/config.ini anpassen (vor allem die Datenbank-User-Einstellungen).
+3a.) zend.conf im Apache2-Verzeichnis anpassen (bei mir liegt sie unter Windows in C:\Program Files (x86)\Zend\Apache2\conf ) und folgendes hinzufügen (Achtung: Eventuell Slashes umdrehen auf einem *nix-System):
+
+Listen 10089
+NameVirtualHost *:10089
+<VirtualHost *:10089>
+	DocumentRoot "[PFAD_ZUM_CODE_VON_VARULV]\public"
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} -s [OR]
+	RewriteCond %{REQUEST_FILENAME} -l [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule ^.*$ - [NC,L]
+	RewriteRule !\.(js|ico|gif|jpg|png|css)$ /index.php [NC,L]
+	<Directory "[PFAD_ZUM_CODE_VON_VARULV]\public">
+		Allow from all
+		AllowOverride all
+	</Directory>
+</VirtualHost>
+
+3b.) Wenn die Applikation nicht im root-Dir des Webservers liegt, den Pfad am Anfang von public/js/mootools-own.js anpassen. Dies sollte bei Anwendung von (3a) nicht notwendig sein.
+4.) Die InnoDB-Datenbank in MySQL erstellen und die sql-Initialisierung in db/init.sql ausführen.
+
+--> Damit sollte man unter Aufruf von http://localhost:10089 das System gestartet bekommen.
